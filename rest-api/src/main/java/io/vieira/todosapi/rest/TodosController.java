@@ -2,12 +2,15 @@ package io.vieira.todosapi.rest;
 
 import io.vieira.todos.Todo;
 import io.vieira.todos.TodosService;
+import io.vieira.todosapi.rest.models.TodoCreationRequest;
 import io.vieira.todosapi.rest.models.TodoResponse;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 import java.util.UUID;
 
@@ -38,6 +41,14 @@ public class TodosController {
         );
     }
 
+    @PostMapping
+    public ResponseEntity<TodoResponse> create(@RequestBody @Valid TodoCreationRequest creationRequest) {
+        final var createdTodo = this.todosService.create(creationRequest.title(), false);
+        return ResponseEntity
+                .created(buildUri(createdTodo))
+                .body(this.toTodoResponse(createdTodo));
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable("id") UUID id) {
@@ -56,11 +67,14 @@ public class TodosController {
                 todo.title(),
                 todo.order(),
                 todo.completed(),
-                ServletUriComponentsBuilder
-                        .fromCurrentContextPath()
-                        .pathSegment("todos", "{id}")
-                        .build(todo.id())
-                        .toString()
+                buildUri(todo).toString()
         );
+    }
+
+    private static URI buildUri(Todo todo) {
+        return ServletUriComponentsBuilder
+                .fromCurrentContextPath()
+                .pathSegment("todos", "{id}")
+                .build(todo.id());
     }
 }
