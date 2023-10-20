@@ -1,7 +1,5 @@
 module todobackend.rest.api {
     requires spring.boot;
-    requires spring.boot.autoconfigure;
-    requires spring.boot.starter.web;
     requires spring.web;
     requires spring.webmvc;
     requires spring.core;

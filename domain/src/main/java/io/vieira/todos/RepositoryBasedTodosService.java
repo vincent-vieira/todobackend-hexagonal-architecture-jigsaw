@@ -38,12 +38,12 @@ public class RepositoryBasedTodosService implements TodosService {
     }
 
     @Override
-    public void removeById(UUID id) {
+    public void deleteById(UUID id) {
         this.todosRepository.deleteById(id);
     }
 
     @Override
-    public void removeAllByCompleted(boolean completed) {
+    public void deleteAllByCompleted(boolean completed) {
         this.todosRepository.deleteAllByCompleted(completed);
     }
 

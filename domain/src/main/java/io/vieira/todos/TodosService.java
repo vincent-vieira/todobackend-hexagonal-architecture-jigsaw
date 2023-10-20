@@ -12,9 +12,9 @@ public interface TodosService {
 
     Optional<Todo> update(UUID id, String title, Boolean completed, Integer order);
 
-    void removeById(UUID id);
+    void deleteById(UUID id);
 
-    void removeAllByCompleted(boolean completed);
+    void deleteAllByCompleted(boolean completed);
 
     List<Todo> findAll();
 }
