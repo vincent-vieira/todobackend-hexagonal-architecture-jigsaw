@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public interface TodosJpaRepository extends JpaRepository<TodoEntity, UUID> {
 
-    @Query("select max('order') from TodoEntity")
+    @Query("select max(t.order) from TodoEntity t")
     Optional<Integer> findMaxOrder();
 
     @Query("from TodoEntity where title = :title")
