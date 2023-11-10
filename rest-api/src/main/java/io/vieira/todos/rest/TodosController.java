@@ -1,9 +1,9 @@
-package io.vieira.todosapi.rest;
+package io.vieira.todos.rest;
 
 import io.vieira.todos.Todo;
 import io.vieira.todos.TodosService;
-import io.vieira.todosapi.rest.models.TodoCreationRequest;
-import io.vieira.todosapi.rest.models.TodoResponse;
+import io.vieira.todos.rest.models.TodoCreationRequest;
+import io.vieira.todos.rest.models.TodoResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

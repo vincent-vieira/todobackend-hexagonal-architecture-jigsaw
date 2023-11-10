@@ -1,4 +1,4 @@
-package io.vieira.todosapi.rest.models;
+package io.vieira.todos.rest.models;
 
 import java.util.UUID;
 

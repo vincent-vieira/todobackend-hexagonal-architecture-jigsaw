@@ -1,4 +1,4 @@
-package io.vieira.todosapi;
+package io.vieira.todos.rest;
 
 import io.vieira.todos.infrastructure.TodosInfrastructureConfiguration;
 import org.springframework.boot.SpringApplication;

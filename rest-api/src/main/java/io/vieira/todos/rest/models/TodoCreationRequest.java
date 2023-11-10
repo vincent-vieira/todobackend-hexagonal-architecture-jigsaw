@@ -1,4 +1,4 @@
-package io.vieira.todosapi.rest.models;
+package io.vieira.todos.rest.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
